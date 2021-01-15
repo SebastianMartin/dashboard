@@ -1,0 +1,61 @@
+.Main {
+    padding-top: 2em;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+}
+
+.Main>h1 {
+    color: white;
+    transform: scale(1.5);
+    border-bottom: 2px solid white;
+}
+
+.TopCryptos {
+    width: 100%;
+    min-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-column-gap: 1em;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+
+
+.Scroller {
+    height: 200px;
+    max-width: 800px;
+    width:100%;
+    position: relative;
+    overflow: hidden;
+    border: solid black 2px;
+}
+
+.Scroller>div {
+    height: 200px;
+    width: auto;
+    background-color: var(--grey);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translate3d(0, 0, 0);
+}
+
+.Scroller .MovementSection {
+    animation: moveSlideshow 12s linear infinite;
+}
+
+.ScrollerImages {
+    height: 100%;
+    
+    object-fit: cover;
+}
+
+@keyframes moveSlideshow {
+    100% {
+        transform: translateX(-66.6666%);
+    }
+}

@@ -1,0 +1,27 @@
+.HeaderContainer {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    z-index: 100;
+    background-color: var(--black);
+    position: -webkit-sticky;
+    position: sticky;
+    top:0px;
+    padding-bottom: 5px;
+
+}
+.HeaderButtonContainer{
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+    border-bottom: solid 1px var(--black);
+}
+.HeaderButton{
+    width: 100%;
+    outline: none;
+    border:none;
+    background-color: var(--black);
+    color:var(--pink);
+    font-size: 30px;
+}
