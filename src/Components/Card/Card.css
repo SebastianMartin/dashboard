@@ -41,15 +41,16 @@
 }
 
 .CardInfo {
+
+    height: 170px;
     transition: all 0.75s ease-out;
 }
 
 .CardLoader {
+    height: 170px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 50px;
-    padding-bottom: 50px;
 }
 
 .CardLoaderOutside {

@@ -83,7 +83,7 @@ const Main = () => {
     return (
         <div className="Main">
             <h1 style={{ color: "white" }}>
-                Your favorite cryptos
+                Your favorite cryptos:
             </h1>
             <div className="TopCryptos">
                 {Cryptos.map((value,index) => (

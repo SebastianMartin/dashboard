@@ -17,13 +17,11 @@ const App = (props) => {
 					</h1>
 				</div>
 				<Header />
-				<Switch>
-				<Route path="/home" component={Main}></Route>
-					<Route exact path="/">
-						<Redirect to="/home" />
-					</Route>
+				<Route path="/home" component={Main}/>
+				<Route exact path="/">
+					<Redirect to="/home" />
+				</Route>
 
-				</Switch>
 				{/* <Route path="/home" component={Main}></Route>
 					<Route exact path="/">
 						<Redirect to="/home" />
