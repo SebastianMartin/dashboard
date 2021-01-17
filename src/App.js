@@ -6,7 +6,7 @@ import Header from './Components/Header/Header'
 
 
 
-const App = () => {
+const App = (props) => {
 
 	return (
 		<BrowserRouter>
@@ -17,13 +17,19 @@ const App = () => {
 					</h1>
 				</div>
 				<Header />
+				<Switch>
 				<Route path="/home" component={Main}></Route>
-				<Route exact path="/">
-					<Redirect to="/home" />
-				</Route>
+					<Route exact path="/">
+						<Redirect to="/home" />
+					</Route>
+
+				</Switch>
+				{/* <Route path="/home" component={Main}></Route>
+					<Route exact path="/">
+						<Redirect to="/home" />
+					</Route> */}
 			</div>
 		</BrowserRouter>
-
 	)
 
 }

@@ -1,6 +1,6 @@
-.CardContainer{
+.CardContainer {
     padding: 10px;
-    height:100%;
+    height: 100%;
     display: grid;
     justify-items: center;
     align-items: center;
@@ -9,23 +9,110 @@
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     background-color: var(--black);
-   
 }
-.Card{
 
+.Card {
     transform-style: preserve-3d;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     display: grid;
     justify-items: center;
     transition: all 0.75s ease-out;
 }
+.CardFavorites{
+    position: absolute;
+    top:5px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    z-index: 50;
+}
+.CardFavorites i{
+ font-size: 40px;
+ color: var(--green);
+}
 
-.CardIcon img{
-    height:100px;
+.CardIcon img {
+    height: 100px;
     transition: all 0.75s ease-out;
 }
 
-.CardInfo{
+.CardInfo {
     transition: all 0.75s ease-out;
+}
+
+.CardLoader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.CardLoaderOutside {
+    position: absolute;
+    border: solid tan 2px;
+    width: 160px;
+    height: 160px;
+    border: 12px solid var(--black);
+    border-top: 12px solid var(--pink);
+    border-bottom: 12px solid var(--pink);
+    border-radius: 50%;
+    animation: Spin 2s linear infinite;
+}
+
+.CardLoaderInside1 {
+    border: solid blue 2px;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    border: 10px solid var(--black);
+    border-top: 10px solid var(--pink);
+    border-bottom: 10px solid var(--pink);
+    border-radius: 50%;
+    animation: SpinCounterClockwise 1.75s linear infinite;
+}
+
+.CardLoaderInside2{
+    border: solid blue 2px;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border: 8px solid var(--black);
+    border-top: 8px solid var(--pink);
+    border-bottom: 8px solid var(--pink);
+    border-radius: 50%;
+    animation: Spin 1.5s linear infinite;
+}
+.CardLoaderInside3{
+    border: solid blue 2px;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border: 6px solid var(--black);
+    border-top: 6px solid var(--pink);
+    border-bottom: 6px solid var(--pink);
+    border-radius: 50%;
+    animation: SpinCounterClockwise 1.25s linear infinite;
+}
+
+@keyframes SpinCounterClockwise {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes Spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

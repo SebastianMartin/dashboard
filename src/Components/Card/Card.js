@@ -3,11 +3,15 @@ import './Card.css';
 import BTC from '../../Images/BTC.png'
 import ETH from '../../Images/ETH.png'
 import LTC from '../../Images/LTC.svg'
+import BCH from '../../Images/BCH.png'
+import XRP from '../../Images/XRP.webp'
+import EOS from '../../Images/EOS.png'
 
+import DASH from '../../Images/DASH.png'
+import XLM from '../../Images/XLM.webp'
 
-
-const Card = ({ crypto }) => {
-    const [state, setState] = useState({ price: 0, volume: 0 });
+const Card = (props) => {
+    const [state, setState] = useState({ price: -1, volume: 0 });
     const CardContainerFieldRef = useRef();
     const CardFieldRef = useRef();
     const iconFieldRef = useRef();
@@ -25,8 +29,8 @@ const Card = ({ crypto }) => {
             // console.log(bounds.left)
             // console.log(event.pageX)
             //console.log(event.pageX-bounds.left)
-            let x = (window.innerWidth / 4 - (4 * event.clientX - 4 * bounds.left) / 1.5) / 50;
-            let y = (window.innerHeight / 2 - (4 * event.clientY - 4 * bounds.top) / 1.5) / 50;
+            let x = (window.innerWidth / 4 - (4 * event.clientX - 4 * bounds.left) / 1.5) / 100;
+            let y = (window.innerHeight / 2 - (4 * event.clientY - 4 * bounds.top) / 1.5) / 100;
             try {
                 CardFieldRef.current.style.transition = "none";
                 CardFieldRef.current.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
@@ -35,10 +39,10 @@ const Card = ({ crypto }) => {
         });
         CardContainerFieldRef.current.addEventListener('mouseenter', (event) => {
             try {
-                CardFieldRef.current.style.transition = "all 0.5s ease";
+                CardFieldRef.current.style.transition = "all 1s ease";
                 CardFieldRef.current.style.transition = "none";
                 //move items up
-                iconFieldRef.current.style.transform = "translateZ(200px) ";
+                iconFieldRef.current.style.transform = "translateZ(150px) ";
                 nameFieldRef.current.style.transform = "translateZ(125px)";
                 shortNameAssetField.current.style.transform = "translateZ(100px)";
                 priceAssetField.current.style.transform = "translateZ(75px)";
@@ -48,7 +52,7 @@ const Card = ({ crypto }) => {
 
         CardContainerFieldRef.current.addEventListener('mouseleave', (event) => {
             try {
-                CardFieldRef.current.style.transition = "all 0.5s ease";
+                CardFieldRef.current.style.transition = "all 1s ease";
                 CardFieldRef.current.style.transform = "none";
                 //move items back down
                 iconFieldRef.current.style.transform = "translateZ(0px)";
@@ -60,28 +64,29 @@ const Card = ({ crypto }) => {
         });
 
         let websocket = new WebSocket("wss://ws-feed.pro.coinbase.com");
-        setTimeout(function () {
-            try {
-                websocket.send(JSON.stringify(
-                    {
-                        type: "subscribe",
-                        product_ids: [
-                            crypto.apiName
-                        ],
-                        channels: [
-                            {
-                                name: "ticker",
-                                product_ids: [
-                                    crypto.apiName,
-                                ]
-                            }
-                        ]
-                    }
-                ));
-            }
-            catch (e) { }
 
-        }, 1000);
+        websocket.addEventListener('open', function (event) {
+            websocket.send(JSON.stringify(
+                {
+                    type: "subscribe",
+                    product_ids: [
+                        props.crypto.apiName
+                    ],
+                    channels: [
+                        {
+                            name: "ticker",
+                            product_ids: [
+                                props.crypto.apiName,
+                            ]
+                        }
+                    ]
+                }
+            ));
+        });
+
+
+
+
 
 
         websocket.onmessage = function (str) {
@@ -103,7 +108,36 @@ const Card = ({ crypto }) => {
         currency: 'USD'
     });
     let image = BTC
-    if (crypto.apiName === "BTC-USD") {
+    switch (props.crypto.apiName) {
+        case "BTC-USD":
+            image = BTC;
+            break;
+        case "ETH-USD":
+            image = ETH;
+            break;
+        case "LTC-USD":
+            image = LTC;
+            break;
+        case "BCH-USD":
+            image = BCH;
+            break;
+        case "XRP-USD":
+            image = XRP;
+            break;
+        case "EOS-USD":
+            image = EOS;
+            break;
+        case "DASH-USD":
+            image = DASH;
+            break;
+        case "XLM-USD":
+            image = XLM;
+            break;
+        default:
+            image = BTC;
+
+    }
+    /*if (crypto.apiName === "BTC-USD") {
         image = BTC
     }
     if (crypto.apiName === "ETH-USD") {
@@ -111,27 +145,45 @@ const Card = ({ crypto }) => {
     }
     if (crypto.apiName === "LTC-USD") {
         image = LTC
+    }*/
+    const clicker = () =>{
+        console.log("pepe")
     }
-
     return (
         <div ref={CardContainerFieldRef} className="CardContainer">
+            <div className="CardFavorites" onClick={() => {props.removeFavoriteClick(props.index)}} >
+                        <i className='fas fa-minus'></i>
+                    </div>
             <div ref={CardFieldRef} className="Card">
                 <div ref={iconFieldRef} className="CardIcon">
                     <img className="CardIcon" src={image} alt="BTC" />
                 </div>
-                <div className="CardInfo">
+                {state.price == -1 ?
+                    <div className="CardLoader">
+                        <div className="CardLoaderOutside"></div>
+                        <div className="CardLoaderInside1"></div>
+                        <div className="CardLoaderInside2"></div>
+                        <div className="CardLoaderInside3"></div>
+                    </div>
+
+                    :
+                    <div className="CardInfo">
+                        <h2 ref={shortNameAssetField} className="CardShortName">
+                            {props.crypto.shortName}
+                        </h2>
+                        <h1 ref={nameFieldRef} className="CardName">
+                            {props.crypto.fullName}
+                        </h1>
+
+                        <h1 ref={priceAssetField} className="CardPrice">{formatter.format(state.price)}</h1>
+                    </div>
+                }
 
 
-                    <h1 ref={nameFieldRef} className="CardName">
-                        {crypto.fullName}
-                    </h1>
 
-                    <h2 ref={shortNameAssetField} className="CardShortName">
-                        {crypto.shortName}
-                    </h2>
 
-                    <h1 ref={priceAssetField} className="CardPrice">{formatter.format(state.price)}</h1>
-                </div>
+
+
             </div>
         </div>
 
