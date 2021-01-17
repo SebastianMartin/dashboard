@@ -1,6 +1,10 @@
 
 .ScrollerIndexWrapper{
     width: 100%;;
+    transition: all 0.5s ease;
+}
+.ScrollerIndexWrapper:hover{
+    transform: scale(1.15);
 }
 .ScrollerIndexContainer{
     display: grid;
@@ -58,3 +62,35 @@
  font-size: 40px;
  color: var(--green);
 }
+
+.ScrollerIndexLoader {
+    justify-self: center;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ScrollerIndexLoaderOutside {
+    position: absolute;
+    border: solid tan 2px;
+    width: 80px;
+    height: 80px;
+    border: 8px solid var(--black);
+    border-top: 8px solid var(--pink);
+    border-bottom: 8px solid var(--pink);
+    border-radius: 50%;
+    animation: Spin 2s linear infinite;
+}
+
+.ScrollerIndexLoaderInside{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    border: 6px solid var(--black);
+    border-top: 6px solid var(--pink);
+    border-bottom: 6px solid var(--pink);
+    border-radius: 50%;
+    animation: SpinCounterClockwise 1.25s linear infinite;
+}
+

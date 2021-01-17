@@ -6,9 +6,39 @@ import LTC from '../../Images/LTC.svg'
 import BCH from '../../Images/BCH.png'
 import XRP from '../../Images/XRP.webp'
 import EOS from '../../Images/EOS.png'
-
 import DASH from '../../Images/DASH.png'
 import XLM from '../../Images/XLM.webp'
+import OXT from '../../Images/OXT.svg'
+
+import MKR from '../../Images/MKR.png'
+import ATOM from '../../Images/ATOM.png'
+import XTZ from '../../Images/XTZ.png'
+import ETC from '../../Images/ETC.png'
+import OMG from '../../Images/OMG.png'
+import ZEC from '../../Images/ZEC.png'
+import LINK from '../../Images/LINK.png'
+import REP from '../../Images/REP.png'
+import ZRX from '../../Images/ZRX.png'
+import ALGO from '../../Images/ALGO.png'
+import DAI from '../../Images/DAI.png'
+import KNC from '../../Images/KNC.png'
+import COMP from '../../Images/COMP.svg'
+import BAND from '../../Images/BAND.png'
+import NMR from '../../Images/NMR.webp'
+import CGLD from '../../Images/CGLD.png'
+import UMA from '../../Images/UMA.png'
+import LRC from '../../Images/LRC.png'
+import YFI from '../../Images/YFI.svg'
+import UNI from '../../Images/UNI.png'
+import REN from '../../Images/REN.webp'
+import BAL from '../../Images/BAL.png'
+import WBTC from '../../Images/WBTC.png'
+import NU from '../../Images/NU.png'
+import FIL from '../../Images/FIL.png'
+import AAVE from '../../Images/AAVE.png'
+import GRT from '../../Images/GRT.png'
+import BNT from '../../Images/BNT.svg'
+import SNX from '../../Images/SNX.png'
 
 const Card = (props) => {
     const [state, setState] = useState({ price: -1, volume: 0 });
@@ -18,6 +48,10 @@ const Card = (props) => {
     const nameFieldRef = useRef();
     const shortNameAssetField = useRef();
     const priceAssetField = useRef();
+    const loadingAssetField1 = useRef();
+    const loadingAssetField2 = useRef();
+    const loadingAssetField3 = useRef();
+    const loadingAssetField4 = useRef();
 
     useEffect(() => {
 
@@ -59,6 +93,8 @@ const Card = (props) => {
                 nameFieldRef.current.style.transform = "translateZ(0px)";
                 shortNameAssetField.current.style.transform = "translateZ(0px)";
                 priceAssetField.current.style.transform = "translateZ(0px)";
+
+                
             }
             catch (e) { }
         });
@@ -133,9 +169,98 @@ const Card = (props) => {
         case "XLM-USD":
             image = XLM;
             break;
+        case "OXT-USD":
+            image = OXT;
+            break;
+        case "MKR-USD":
+            image = MKR;
+            break;
+        case "ATOM-USD":
+            image = ATOM;
+            break;
+        case "XTZ-USD":
+            image = XTZ;
+            break;
+        case "ETC-USD":
+            image = ETC;
+            break;
+        case "OMG-USD":
+            image = OMG;
+            break;
+        case "ZEC-USD":
+            image = ZEC;
+            break;
+        case "LINK-USD":
+            image = LINK;
+            break;
+        case "REP-USD":
+            image = REP;
+            break;
+        case "ZRX-USD":
+            image = ZRX;
+            break;
+        case "ALGO-USD":
+            image = ALGO;
+            break;
+        case "DAI-USD":
+            image = DAI;
+            break;
+        case "KNC-USD":
+            image = KNC;
+            break;
+        case "COMP-USD":
+            image = COMP;
+            break;
+        case "BAND-USD":
+            image = BAND;
+            break;
+        case "NMR-USD":
+            image = NMR;
+            break;
+        case "CGLD-USD":
+            image = CGLD;
+            break;
+        case "UMA-USD":
+            image = UMA;
+            break;
+        case "LRC-USD":
+            image = LRC;
+            break;
+        case "YFI-USD":
+            image = YFI;
+            break;
+        case "UNI-USD":
+            image = UNI;
+            break;
+        case "REN-USD":
+            image = REN;
+            break;
+        case "BAL-USD":
+            image = BAL;
+            break;
+        case "WBTC-USD":
+            image = WBTC;
+            break;
+        case "NU-USD":
+            image = NU;
+            break;
+        case "FIL-USD":
+            image = FIL;
+            break;
+        case "AAVE-USD":
+            image = AAVE;
+            break;
+        case "GRT-USD":
+            image = GRT;
+            break;
+        case "BNT-USD":
+            image = BNT;
+            break;
+        case "SNX-USD":
+            image = SNX;
+            break;
         default:
             image = BTC;
-
     }
     /*if (crypto.apiName === "BTC-USD") {
         image = BTC
@@ -146,24 +271,24 @@ const Card = (props) => {
     if (crypto.apiName === "LTC-USD") {
         image = LTC
     }*/
-    const clicker = () =>{
+    const clicker = () => {
         console.log("pepe")
     }
     return (
         <div ref={CardContainerFieldRef} className="CardContainer">
-            <div className="CardFavorites" onClick={() => {props.removeFavoriteClick(props.index)}} >
-                        <i className='fas fa-minus'></i>
-                    </div>
+            <div className="CardFavorites" onClick={() => { props.removeFavoriteClick(props.index) }} >
+                <i className='fas fa-minus'></i>
+            </div>
             <div ref={CardFieldRef} className="Card">
                 <div ref={iconFieldRef} className="CardIcon">
                     <img className="CardIcon" src={image} alt="BTC" />
                 </div>
                 {state.price == -1 ?
                     <div className="CardLoader">
-                        <div className="CardLoaderOutside"></div>
-                        <div className="CardLoaderInside1"></div>
-                        <div className="CardLoaderInside2"></div>
-                        <div className="CardLoaderInside3"></div>
+                         <div ref={loadingAssetField1} className="CardLoaderOutside"></div>
+                        <div ref={loadingAssetField2} className="CardLoaderInside1"></div>
+                        <div ref={loadingAssetField3} className="CardLoaderInside2"></div>
+                        <div ref={loadingAssetField4} className="CardLoaderInside3"></div> 
                     </div>
 
                     :
