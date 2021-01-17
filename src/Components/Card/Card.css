@@ -54,7 +54,6 @@
 }
 
 .CardLoaderOutside {
-    transition: all 0.75s ease-out;
     position: absolute;
     width: 160px;
     height: 160px;
@@ -69,18 +68,17 @@
     width: 120px;
     height: 120px;
     position: absolute;
-    border: 10px solid var(--black);
-    border-top: 10px solid var(--pink);
-    border-bottom: 10px solid var(--pink);
+    border: 8px solid var(--black);
+    border-top: 8px solid var(--pink);
+    border-bottom: 8px solid var(--pink);
     border-radius: 50%;
-    transform: rotateZ();
-    animation: SpinCounterClockwise 1.75s linear infinite;
+    animation: SpinCounterClockwise 1.5s linear infinite;
 }
 
 .CardLoaderInside2{
     width: 80px;
     height: 80px;
-    position: relative;
+    position: absolute;
     border: 8px solid var(--black);
     border-top: 8px solid var(--pink);
     border-bottom: 8px solid var(--pink);

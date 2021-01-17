@@ -285,10 +285,10 @@ const Card = (props) => {
                 </div>
                 {state.price == -1 ?
                     <div className="CardLoader">
-                         <div ref={loadingAssetField1} className="CardLoaderOutside"></div>
-                        <div ref={loadingAssetField2} className="CardLoaderInside1"></div>
-                        <div ref={loadingAssetField3} className="CardLoaderInside2"></div>
-                        <div ref={loadingAssetField4} className="CardLoaderInside3"></div> 
+                         <div className="CardLoaderOutside"></div>
+                        <div className="CardLoaderInside1"></div>
+                        <div className="CardLoaderInside2"></div>
+                        <div className="CardLoaderInside3"></div> 
                     </div>
 
                     :
