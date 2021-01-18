@@ -45,6 +45,9 @@
     height: 170px;
     transition: all 0.75s ease-out;
 }
+.CardInfo h1{
+    font-size: 45px;
+}
 
 .CardLoader {
     height: 170px;

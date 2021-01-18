@@ -8,18 +8,19 @@ import LTC from '../../Images/LTC.svg'
 const Main = () => {
     const [favState, setFavState] = useState({ faves: [] })
     const [searchState, setSearchState] = useState("")
-    console.log(searchState)
     useEffect(() => {
         setFavState({
             faves: JSON.parse(localStorage.getItem('favorites')) || [{
                 apiName: "BTC-USD",
                 fullName: "Bitcoin",
-                shortName: "BTC"
+                shortName: "BTC",
+                image: "BTC.png"
             },
             {
                 apiName: "ETH-USD",
                 fullName: "Ethereum",
-                shortName: "ETH"
+                shortName: "ETH",
+                image: "ETH.png"
             }]
         })
     }, []);
@@ -57,7 +58,8 @@ const Main = () => {
         return false
     }
 
-    let ScrollerCryptos = require('./coins')
+    let ScrollerCryptos = require('../../Data/coins')
+    console.log(ScrollerCryptos)
 
     ScrollerCryptos = ScrollerCryptos.filter(inFaves)
     ScrollerCryptos = ScrollerCryptos.filter(isSearched)

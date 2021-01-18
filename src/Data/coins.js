@@ -2,192 +2,230 @@ module.exports = [
         {
             apiName: "BTC-USD",
             fullName: "Bitcoin",
-            shortName: "BTC"
+            shortName: "BTC",
+            image: "BTC.png"
         },
         {
             apiName: "ETH-USD",
             fullName: "Ethereum",
-            shortName: "ETH"
+            shortName: "ETH",
+            image: "ETH.png"
         },
         {
             apiName: "LTC-USD",
             fullName: "Litecoin",
-            shortName: "LTC"
+            shortName: "LTC",
+            image: "LTC.svg"
         },
         {
             apiName: "BCH-USD",
             fullName: "Bitcoin Cash",
-            shortName: "BCH"
+            shortName: "BCH",
+            image: "BCH.png"
         },
         {
             apiName: "XRP-USD",
             fullName: "XRP",
-            shortName: "XRP"
+            shortName: "XRP",
+            image: "XRP.webp"
         },
         {
             apiName: "EOS-USD",
             fullName: "EOS",
-            shortName: "EOS"
+            shortName: "EOS",
+            image: "EOS.png"
         },
         {
             apiName: "DASH-USD",
             fullName: "DASH",
-            shortName: "DASH"
+            shortName: "DASH",
+            image: "DASH.png"
         },
         {
             apiName: "XLM-USD",
             fullName: "Stellar",
-            shortName: "XLM"
+            shortName: "XLM",
+            image: "XLM.webp"
         },
         {
             apiName: "OXT-USD",
             fullName: "Orcid",
-            shortName: "OXT"
+            shortName: "OXT",
+            image: "OXT.svg"
         },
         {
             apiName: "MKR-USD",
             fullName: "Maker",
-            shortName: "MKR"
+            shortName: "MKR",
+            image: "MKR.png"
         },
         {
             apiName: "ATOM-USD",
             fullName: "Cosmos",
-            shortName: "ATOM"
+            shortName: "ATOM",
+            image: "ATOM.png"
         },
         {
             apiName: "XTZ-USD",
             fullName: "Tezos",
-            shortName: "XTZ"
+            shortName: "XTZ",
+            image: "XTZ.png"
         },
         {
             apiName: "ETC-USD",
             fullName: "Ether Classic",
-            shortName: "ETC"
+            shortName: "ETC",
+            image: "ETC.png"
         },
         {
             apiName: "OMG-USD",
             fullName: "OMG",
-            shortName: "OMG"
+            shortName: "OMG",
+            image: "OMG.png"
         },
         {
             apiName: "ZEC-USD",
             fullName: "ZCash",
-            shortName: "ZEC"
+            shortName: "ZEC",
+            image: "ZEC.png"
         },
         {
             apiName: "LINK-USD",
             fullName: "Chainlink",
-            shortName: "LINK"
+            shortName: "LINK",
+            image: "LINK.png"
         },
         {
             apiName: "REP-USD",
             fullName: "Auger",
-            shortName: "REP"
+            shortName: "REP",
+            image: "REP.png"
         },
         {
             apiName: "ZRX-USD",
             fullName: "0x",
-            shortName: "ZRX"
+            shortName: "ZRX",
+            image: "ZRX.png"
         },
         {
             apiName: "ALGO-USD",
             fullName: "Algorand",
-            shortName: "ALGO"
+            shortName: "ALGO",
+            image: "ALGO.png"
         },
         {
             apiName: "DAI-USD",
             fullName: "Dai",
-            shortName: "DAI"
+            shortName: "DAI",
+            image: "DAI.png"
         },
         {
             apiName: "KNC-USD",
             fullName: "Kyber",
-            shortName: "KNC"
+            shortName: "KNC",
+            image: "KNC.png"
         },
         {
             apiName: "COMP-USD",
             fullName: "Compound",
-            shortName: "COMP"
+            shortName: "COMP",
+            image: "COMP.svg"
         },
         {
             apiName: "BAND-USD",
             fullName: "Band",
-            shortName: "BAND"
+            shortName: "BAND",
+            image: "BAND.png"
         },
         {
             apiName: "NMR-USD",
             fullName: "Numeraire",
-            shortName: "NMR"
+            shortName: "NMR",
+            image: "NMR.webp"
         },
         {
             apiName: "CGLD-USD",
             fullName: "Celo",
-            shortName: "CGLD"
+            shortName: "CGLD",
+            image: "CGLD.png"
         },
         {
             apiName: "UMA-USD",
             fullName: "UMA",
-            shortName: "UMA"
+            shortName: "UMA",
+            image: "UMA.png"
         },
         {
             apiName: "LRC-USD",
             fullName: "Loopring",
-            shortName: "LRC"
+            shortName: "LRC",
+            image: "LRC.png"
         },
         {
             apiName: "YFI-USD",
             fullName: "yearn",
-            shortName: "YFI"
+            shortName: "YFI",
+            image: "YFI.svg"
         },
         {
             apiName: "UNI-USD",
             fullName: "Uniswap",
-            shortName: "UNI"
+            shortName: "UNI",
+            image: "UNI.png"
         },
         {
             apiName: "REN-USD",
             fullName: "Ren",
-            shortName: "REN"
+            shortName: "REN",
+            image: "REN.webp"
         },
         {
             apiName: "BAL-USD",
             fullName: "Balancer",
-            shortName: "BAL"
+            shortName: "BAL",
+            image: "BAL.png"
         },
         {
             apiName: "WBTC-USD",
             fullName: "Wrapped BTC",
-            shortName: "WBTC"
+            shortName: "WBTC",
+            image: "WBTC.png"
         },
         {
             apiName: "NU-USD",
             fullName: "NuCypher",
-            shortName: "NU"
+            shortName: "NU",
+            image: "NU.png"
         },
         {
             apiName: "FIL-USD",
             fullName: "FileCoin",
-            shortName: "FIL"
+            shortName: "FIL",
+            image: "FIL.png"
         },
         {
             apiName: "AAVE-USD",
             fullName: "Aave",
-            shortName: "AAVE"
+            shortName: "AAVE",
+            image: "AAVE.png"
         },
         {
             apiName: "GRT-USD",
             fullName: "The Graph",
-            shortName: "GRT"
+            shortName: "GRT",
+            image: "GRT.png"
         },
         {
             apiName: "BNT-USD",
             fullName: "Bancor",
-            shortName: "BNT"
+            shortName: "BNT",
+            image: "BNT.svg"
         },
         {
             apiName: "SNX-USD",
             fullName: "Synthetix",
-            shortName: "SNX"
+            shortName: "SNX",
+            image: "SNX.png"
         }
 
 

@@ -11,8 +11,8 @@ const Header = (props) => {
             value: "home"
         },
         {
-            name: "Teaching",
-            value: "teaching"
+            name: "Portfolio",
+            value: "portfolio"
         },
         {
             name: "Resume",
