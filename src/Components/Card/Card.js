@@ -106,9 +106,6 @@ const Card = (props) => {
         currency: 'USD'
     });
 
-    const clicker = () => {
-        console.log("pepe")
-    }
     return (
         <div ref={CardContainerFieldRef} className="CardContainer">
             <div className="CardFavorites" onClick={() => { props.removeFavoriteClick(props.index) }} >

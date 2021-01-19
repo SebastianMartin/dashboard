@@ -14,14 +14,14 @@ const Header = (props) => {
             name: "Portfolio",
             value: "portfolio"
         },
-        {
-            name: "Resume",
-            value: "resume"
-        },
-        {
-            name: "Dissertation",
-            value: "dissertation"
-        },
+        // {
+        //     name: "Resume",
+        //     value: "resume"
+        // },
+        // {
+        //     name: "Dissertation",
+        //     value: "dissertation"
+        // },
         // {
         //     name: "Contact",
         //     value: "contact"

@@ -15,7 +15,7 @@
 
 .PortfolioAssets {
     grid-column: 1/4;
-    min-width: 600px;
+    min-width: 900px;
     display: grid;
     grid-template-columns: repeat(1, minmax(0, 1fr));
     grid-gap: 1em;
@@ -33,17 +33,18 @@
     justify-items: center;
     align-items: center;
     border-radius: 10px;
-    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    background-color: var(--black);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2), 0px 0px 5px rgba(0, 0, 0, 0.2);
+    background-color: var(--primary);
     width: 100%;
     height: 100px;
     padding-left: 20px;
     padding-right: 20px;
 }
+
 .PortfolioAssetContainer i {
     font-size: 40px;
-    color: var(--green);
+    color: var(--fontTwo);
+    cursor: pointer;
 }
 
 .PortfolioAsset {
@@ -96,9 +97,9 @@
     border: solid tan 2px;
     width: 80px;
     height: 80px;
-    border: 8px solid var(--black);
-    border-top: 8px solid var(--pink);
-    border-bottom: 8px solid var(--pink);
+    border: 8px solid var(--primary);
+    border-top: 8px solid var(--fontOne);
+    border-bottom: 8px solid var(--fontOne);
     border-radius: 50%;
     animation: Spin 2s linear infinite;
 }
@@ -107,9 +108,9 @@
     width: 40px;
     height: 40px;
     position: absolute;
-    border: 6px solid var(--black);
-    border-top: 6px solid var(--pink);
-    border-bottom: 6px solid var(--pink);
+    border: 6px solid var(--primary);
+    border-top: 6px solid var(--fontOne);
+    border-bottom: 6px solid var(--fontOne);
     border-radius: 50%;
     animation: SpinCounterClockwise 1.25s linear infinite;
 }
@@ -121,9 +122,8 @@
 .PortfolioAddNewCoinWrapper {
     width: 100%;
     border-radius: 10px;
-    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    background-color: var(--black);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2), 0px 0px 5px rgba(0, 0, 0, 0.2);
+    background-color: var(--primary);
     min-width: 600px;
     display: flex;
     align-items: center;
@@ -131,11 +131,12 @@
 
 .PortfolioAddNewCoinWrapper i {
     font-size: 40px;
-    color: var(--green);
+    color: var(--fontTwo);
+    cursor: pointer;
 }
 
 .PortfolioAddNewCoin {
-    width:100%;
+    width: 100%;
     display: grid;
     justify-items: center;
     height: 150px;
@@ -146,7 +147,7 @@
 }
 
 .PortfolioAddNewCoin p {
-    color: var(--green);
+    color: var(--fontOne);
     font-size: 30px;
     ;
 }
@@ -158,15 +159,15 @@
     margin: 5%;
     height: 60%;
     border: none;
-    background-color: var(--black);
+    background-color: var(--primary);
     font-size: 40px;
-    color: var(--pink);
-    border-bottom: solid var(--pink) 2px;
+    color: var(--fontOne);
+    border-bottom: solid var(--fontOne) 2px;
 }
 
 .PortfolioInputDropDown {
     position: absolute;
-    background-color: var(--black);
+    background-color: var(--primary);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -174,6 +175,8 @@
     max-height: 400px;
     margin-bottom: 100px;
     overflow: scroll;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .PortfolioInputDropDown::-webkit-scrollbar {
@@ -189,30 +192,29 @@
     /* Firefox */
 }
 
-
 .PortfolioInputNumber::-webkit-inner-spin-button {
     -webkit-appearance: none;
     -moz-appearance: textfield;
 }
 
 .PortfolioInput::placeholder, .PortfolioInputNumber::placeholder {
-    color: var(--pink);
+    /* color: var(--secondary); */
 }
 
 .PortfolioInput:focus, .PortfolioInputNumber:focus {
     outline: 0;
 }
 
-
 .PortfolioSearchIcon {
-    border-top: solid var(--pink) 2px;
+    border-top: solid var(--fontOne) 2px;
     display: grid;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
-    background-color: var(--black);
+    background-color: var(--primary);
     font-size: 40px;
     padding: 5px 0px;
     width: 400px;
+    cursor: pointer;
 }
 
 .PortfolioSearchIndexIcon {
@@ -227,47 +229,106 @@
     height: 100%;
     object-fit: cover;
 }
-.PortfolioSelectedAsset{
+
+.PortfolioSelectedAsset {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
-.PortfolioSelectedAssetIcon{
+
+.PortfolioSelectedAssetIcon {
     height: 70px;
     width: 120px;
     display: grid;
     justify-items: center;
     align-items: center;
 }
+
 .PortfolioInputNumber {
     width: 100px;
     margin: 5%;
     height: 60%;
     border: none;
-    background-color: var(--black);
+    background-color: var(--primary);
     font-size: 40px;
-    color: var(--pink);
+    color: var(--fontOne);
     -webkit-appearance: none;
     -moz-appearance: textfield;
-    border-bottom: solid var(--pink) 2px;
+    border-bottom: solid var(--fontOne) 2px;
 }
 
 .PortfolioInputNumber::-webkit-inner-spin-button {
+    font-weight: 300;
     -webkit-appearance: none;
     -moz-appearance: textfield;
 }
 
 .PortfolioInput::placeholder, .PortfolioInputNumber::placeholder {
-    color: var(--pink);
+    color: grey;
 }
 
 .PortfolioInput:focus, .PortfolioInputNumber:focus {
     outline: 0;
 }
-.PortfolioInputNumberUpdate{
+
+.PortfolioInputNumberUpdate {
     display: flex;
     align-items: center;
 }
+
 .PortfolioInputNumberUpdate i {
     font-size: 40px;
-    color: var(--green);
+    color: var(--fontTwo);
+    cursor: pointer;
+}
+
+.PortfolioAssetEditButton {
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 30px;
+    padding: 5% 15%;
+    border-radius: 8px;
+    ;
+    border: var(--secondary);
+    color: var(--secondary);
+}
+.PortfolioSum>h1:nth-child(2){
+    font-size: 80px;
+}
+
+
+
+@media (max-width: 1000px) {
+
+    .PortfolioAddNewCoinWrapper {
+        width: 90%;
+        min-width: 0px;
+    }
+    .PortfolioAssets {
+        width: 90%;
+        min-width: 0px;
+    }
+    .PortfolioAssetInfo {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3, 1fr);
+        justify-items: start;
+        align-items: center;
+    }
+    .PortfolioAssetInfo h1, .PortfolioAssetInfo h2 {
+        transform: scale(.8);
+    }
+    .PortfolioSum>h1:nth-child(2){
+        font-size: 65px;
+    }
+}
+@media (max-width: 600px) {
+    .PortfolioAssetIcon {
+        display: none;
+    }
+    .PortfolioSum>h1:nth-child(2){
+        font-size: 50px;
+    }
+    .PortfolioInput {
+        font-size: 30px;
+    }
 }

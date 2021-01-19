@@ -29,7 +29,7 @@
     border: none;
     border-radius: 10px;
     box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2), 0px 0px 50px rgba(0, 0, 0, 0.2);
-    background-color: var(--black);
+    background-color: var(--primary);
     display: flex;
     justify-items: center;
     align-items: center;
@@ -40,20 +40,20 @@
     margin: 5%;
     height: 60%;
     border: none;
-    background-color: var(--black);
+    background-color: var(--primary);
     font-size: 40px;
-    color: var(--pink);
-    border-bottom: solid var(--pink) 2px;
+    color: var(--fontOne);
+    border-bottom: solid var(--fontOne) 2px;
 }
 
 .CryptoSearchInput::placeholder {
-    color: var(--pink);
+    color: var(--fontOne);
 }
 
 .CryptoSearch i {
     margin-right: 5%;
     font-size: 40px;
-    color: var(--green);
+    color: var(--fontTwo);
 }
 
 .CryptoSearchInput:focus {
@@ -81,7 +81,7 @@
 .loader {
     border: 16px solid var(--grey);
     /* Light grey */
-    border-top: 16px solid var(--pink);
+    border-top: 16px solid var(--pifontOnenk);
     /* Blue */
     border-radius: 50%;
     width: 120px;
@@ -101,5 +101,33 @@
 @keyframes moveSlideshow {
     100% {
         transform: translateX(-66.6666%);
+    }
+}
+
+@media (max-width: 1000px) {
+    .Main h1{
+        font-size: 20px;
+    }
+    .TopCryptos {
+        width: 90%;
+        min-width: 100px;
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .ScrollerCryptos {
+        width: 90%;
+        min-width: 00px;
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        grid-gap: 1em;
+        padding-bottom: 5em;
+    }
+    .CryptoSearch {
+        width: 90%;
+    }
+    .CryptoSearch i {
+        margin-right: 1%;
+        font-size: 40px;
+        color: var(--fontTwo);
     }
 }

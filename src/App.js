@@ -15,7 +15,7 @@ const App = (props) => {
 			<div className="App">
 				<div className="TopHeader">
 					<h1 >
-						Dashboard
+						Crypto Command Center
 					</h1>
 				</div>
 				<Header />

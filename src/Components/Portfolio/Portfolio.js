@@ -38,7 +38,7 @@ const Asset = (props) => {
                 let tempCoins = JSON.parse(localStorage.getItem('portfolio'))
                 for (let i = 0; i < tempCoins.length; i++) {
                     if (tempCoins[i].coin.apiName === props.coin.coin.apiName) {
-                        tempCoins[i].value = parseFloat(data.price) * parseFloat(props.coin.amount)
+                        tempCoins[i].value = parseFloat(data.price) * parseFloat(tempCoins[i].amount)
                     }
                 }
                 dispatch(updatePortfolio(tempCoins))
@@ -63,11 +63,11 @@ const Asset = (props) => {
         localStorage.setItem('portfolio', JSON.stringify(tempCoins))
         setEditing(false)
     }
-    const deleteAsset =() =>{
+    const deleteAsset = () => {
         let tempCoins = JSON.parse(localStorage.getItem('portfolio'))
         for (let i = 0; i < tempCoins.length; i++) {
             if (tempCoins[i].coin.apiName === props.coin.coin.apiName) {
-                tempCoins.splice(i,1)
+                tempCoins.splice(i, 1)
             }
         }
         dispatch(updatePortfolio(tempCoins))
@@ -97,7 +97,14 @@ const Asset = (props) => {
                                 <i className='fas fa-check' onClick={updateAssetAmount}></i>
                             </div>
                             :
-                            <h1 className="PortfolioAssetPrice" onClick={() => setEditing(true)}>{props.coin.amount}</h1>}
+                            <div>
+                                {(props.coin.amount === 0) ?
+                                    <button className="PortfolioAssetEditButton" onClick={() => setEditing(true)}><p>Add</p></button>
+                                    :
+                                    <h1 className="PortfolioAssetPrice" onClick={() => setEditing(true)}>{props.coin.amount}</h1>}
+
+                            </div>
+                        }
 
                         </div>
 
@@ -112,7 +119,7 @@ const Asset = (props) => {
                 </div>
                 <i className='fas fa-minus' onClick={deleteAsset}></i>
             </div>
-            
+
         </div>
     )
 }
@@ -137,6 +144,8 @@ const Portfolio = (props) => {
     const dispatch = useDispatch()
     const portfolioState = useSelector(state => state.portfolio)
 
+    const searchRef = useRef()
+
     const [newCryptoState, setNewCryptoState] = useState("")
     const [newCryptoAmount, setNewCryptoAmount] = useState("")
     const [newCryptoSelected, setnewCryptoSelected] = useState(false)
@@ -151,10 +160,21 @@ const Portfolio = (props) => {
         }
         return false
     }
+    const isChosen = (crypto) =>{
+        let tempCoins = JSON.parse(localStorage.getItem('portfolio'))
+        console.log(tempCoins)
+        for (let i = 0; i < tempCoins.length; i++) {
+            if (crypto.apiName === tempCoins[i].coin.apiName) {
+                return false
+            }
+        }
+        return true
+    }
     let allCryptos = require('../../Data/coins')
     let filteredCryptos = []
     if (newCryptoState != "" && !newCryptoSelected) {
         filteredCryptos = allCryptos.filter(isSearched)
+        filteredCryptos = filteredCryptos.filter(isChosen)
     }
 
 
@@ -225,6 +245,7 @@ const Portfolio = (props) => {
                     }
                     dispatch(updatePortfolio(tempCoins))
                     localStorage.setItem('portfolio', JSON.stringify(tempCoins))
+                    setNewCryptoState("")
                 }
             }
 
@@ -240,12 +261,30 @@ const Portfolio = (props) => {
         <div className="PortfolioWrapper">
             <div className="PortfolioSum">
                 <h1 style={{ color: "white", borderBottom: "solid white 1px" }}>Portfolio Value</h1>
-                <h1 style={{ color: "white", fontSize: "80px" }}>{formatter.format(CoinsSum)}</h1>
+                <h1 style={{ color: "white"}}>{formatter.format(CoinsSum)}</h1>
             </div>
             <div className="Portfolio">
 
                 <div className="PortfolioAssets">
-                    <div className="PortfolioAssetWrapper">
+                    {portfolioState.coins.length > 0 ?
+                        <div className="PortfolioAssetWrapper">
+                            <div className="PortfolioAssetContainer" style={{height:"50px"}}>
+                                <div className="PortfolioAsset">
+                                    <div style={{ width: "100px" }} className="PortfolioAssetIcon">
+                                    </div>
+                                    <div className="PortfolioAssetInfo">
+                                        <h1 className="PortfolioAssetShortName">
+                                            Crypto:                                </h1>
+                                        <h1 className="PortfolioAssetPrice">Amount:</h1>
+                                        <h1 style={{ justifySelf: "center" }} className="PortfolioAssetPrice">Value:</h1>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div> :
+                        <div />
+                    }
+                    {/* <div className="PortfolioAssetWrapper">
                         <div className="PortfolioAssetContainer">
                             <div className="PortfolioAsset">
                                 <div style={{ width: "100px" }} className="PortfolioAssetIcon">
@@ -259,7 +298,7 @@ const Portfolio = (props) => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     {portfolioState.coins.map((value) => (
                         <Asset coin={value} />
                     ))}
@@ -269,9 +308,10 @@ const Portfolio = (props) => {
                         <p style={{ gridColumn: "1/5", borderBottom: "solid var(--green) 2px" }}>Add a New Crypto</p>
                         <div style={{ gridColumn: "1/4" }}>
                             <input
+                                ref={searchRef}
                                 className="PortfolioInput"
                                 type="text"
-                                placeholder="Search for a coin"
+                                placeholder="Search for a crypto"
                                 value={newCryptoState}
                                 onChange={(e) => (setNewCryptoState(e.target.value), setnewCryptoSelected(false))}
                             ></input>
@@ -281,11 +321,11 @@ const Portfolio = (props) => {
                                 ))}
 
                             </div>
-                            
+
                         </div>
                         <i className='fas fa-plus' onClick={SaveNewCrypto}></i>
                     </div>
-                    
+
                 </div>
 
 

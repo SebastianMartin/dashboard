@@ -14,16 +14,32 @@
   --black: #1A1A1D;
   --pink: #950740;
   --grey: #4E4E50;
+  /* --primary:#1A1A1D;
+  --secondary:#4E4E50;
+  --fontOne:#950740;
+  --fontTwo:#40B3A2; */
+  /* --primary: #5A5560;
+  --secondary: #9D8D8F;
+  --fontOne: #FAED26;
+  --fontTwo: #46344E; */
+  /* --primary: #2B7A78;
+  --secondary: #3AAFA9;
+  --fontOne: #DEF2F1;
+  --fontTwo: #19252A; */
+  --primary: #254E58;
+  --secondary: #88BDBC;
+  --fontOne: #DEF2F1;
+  --fontTwo: #19252A;
 }
 
 .App {
   text-align: center;
-  background-color: var(--grey);
+  background-color: var(--secondary);
   min-height: 150vh;
 }
 
 .TopHeader {
-  background-color: var(--black);
+  background-color: var(--primary);
   z-index: 200;
 }
 
@@ -31,21 +47,21 @@
   font-size: 80px;
   font-family: 'Lato', sans-serif;
   font-weight: 300;
-  color: var(--pink);
+  color: var(--fontOne);
 }
 
 h1 {
   font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-size: 30x;
-  color: var(--pink)
+  font-weight: 400;
+  font-size: 30Px;
+  color: var(--fontOne)
 }
 
 h2 {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-size: 35px;
-  color: var(--pink)
+  color: var(--fontOne)
 }
 
 @keyframes App-logo-spin {

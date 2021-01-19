@@ -59,8 +59,6 @@ const Main = () => {
     }
 
     let ScrollerCryptos = require('../../Data/coins')
-    console.log(ScrollerCryptos)
-
     ScrollerCryptos = ScrollerCryptos.filter(inFaves)
     ScrollerCryptos = ScrollerCryptos.filter(isSearched)
     return (
@@ -74,14 +72,14 @@ const Main = () => {
                 ))}
             </div>
             <h1 style={{ color: "white" }}>
-                Other Coins
+                Other Cryptos
             </h1>
             <br></br>
             <div className="CryptoSearch" >
                 <input
                     className="CryptoSearchInput"
                     type="text"
-                    placeholder="Search for a coin"
+                    placeholder="Search for a crypto"
                     value={searchState}
                     onChange={(e)=>setSearchState(e.target.value)}
                 ></input>
