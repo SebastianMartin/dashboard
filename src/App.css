@@ -72,3 +72,9 @@ h2 {
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 1000px) {
+  .TopHeader h1 {
+    font-size: 40px;
+  }
+}
