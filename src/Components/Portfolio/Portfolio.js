@@ -73,6 +73,7 @@ const Asset = (props) => {
         dispatch(updatePortfolio(tempCoins))
         localStorage.setItem('portfolio', JSON.stringify(tempCoins))
         setEditing(false)
+        window.location.reload(false);
     }
     return (
         <div className="PortfolioAssetWrapper">
@@ -87,7 +88,6 @@ const Asset = (props) => {
                         </h2>
                         <div>{editing ?
                             <div className="PortfolioInputNumberUpdate">
-
                                 <input
                                     className="PortfolioInputNumber"
                                     type="number"
@@ -102,13 +102,10 @@ const Asset = (props) => {
                                     <button className="PortfolioAssetEditButton" onClick={() => setEditing(true)}><p>Add</p></button>
                                     :
                                     <h1 className="PortfolioAssetPrice" onClick={() => setEditing(true)}>{props.coin.amount}</h1>}
-
                             </div>
                         }
-
                         </div>
-
-                        {state.price == -1 ?
+                            {state.price == -1 ?
                             <div className="PortfolioAssetLoader">
                                 <div className="PortfolioAssetLoaderOutside"></div>
                                 <div className="PortfolioAssetLoaderInside"></div>
@@ -160,7 +157,7 @@ const Portfolio = (props) => {
         }
         return false
     }
-    const isChosen = (crypto) =>{
+    const isChosen = (crypto) => {
         let tempCoins = JSON.parse(localStorage.getItem('portfolio'))
         console.log(tempCoins)
         for (let i = 0; i < tempCoins.length; i++) {
@@ -184,38 +181,7 @@ const Portfolio = (props) => {
         currency: 'USD'
     });
     useEffect(() => {
-        let tempCoins = JSON.parse(localStorage.getItem('portfolio')) || [
-            // {
-            //     coin: {
-            //         apiName: "BTC-USD",
-            //         fullName: "Bitcoin",
-            //         shortName: "BTC",
-            //         image: "BTC.png"
-            //     },
-            //     amount: 1.667,
-            //     value: 0.0
-            // },
-            // {
-            //     coin: {
-            //         apiName: "ETH-USD",
-            //         fullName: "Ethereum",
-            //         shortName: "ETH",
-            //         image: "ETH.png"
-            //     },
-            //     amount: 11.617,
-            //     value: 0.0
-            // },
-            // {
-            //     coin: {
-            //         apiName: "LTC-USD",
-            //         fullName: "Litecoin",
-            //         shortName: "LTC",
-            //         image: "LTC.svg"
-            //     },
-            //     amount: 32.25,
-            //     value: 0.0
-            // }
-        ]
+        let tempCoins = JSON.parse(localStorage.getItem('portfolio')) || []
         localStorage.setItem('portfolio', JSON.stringify(tempCoins))
         dispatch(updatePortfolio(tempCoins))
     }, []);
@@ -261,14 +227,14 @@ const Portfolio = (props) => {
         <div className="PortfolioWrapper">
             <div className="PortfolioSum">
                 <h1 style={{ color: "white", borderBottom: "solid white 1px" }}>Portfolio Value</h1>
-                <h1 style={{ color: "white"}}>{formatter.format(CoinsSum)}</h1>
+                <h1 style={{ color: "white" }}>{formatter.format(CoinsSum)}</h1>
             </div>
             <div className="Portfolio">
 
                 <div className="PortfolioAssets">
                     {portfolioState.coins.length > 0 ?
                         <div className="PortfolioAssetWrapper">
-                            <div className="PortfolioAssetContainer" style={{height:"50px"}}>
+                            <div className="PortfolioAssetContainer" style={{ height: "50px" }}>
                                 <div className="PortfolioAsset">
                                     <div style={{ width: "100px" }} className="PortfolioAssetIcon">
                                     </div>

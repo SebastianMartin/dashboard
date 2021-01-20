@@ -197,9 +197,9 @@
     -moz-appearance: textfield;
 }
 
-.PortfolioInput::placeholder, .PortfolioInputNumber::placeholder {
-    /* color: var(--secondary); */
-}
+/* .PortfolioInput::placeholder, .PortfolioInputNumber::placeholder {
+     color: var(--secondary); 
+} */
 
 .PortfolioInput:focus, .PortfolioInputNumber:focus {
     outline: 0;
